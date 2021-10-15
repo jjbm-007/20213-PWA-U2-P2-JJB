@@ -1,5 +1,3 @@
-console.log("Sw: instalado");
-const CACHE_NAME = 'cache-v1';
 const CACHE_STATIC_NAME = 'static-v1';
 const CACHE_DYNAMIC_NAME = 'dynamic-v1';
 const CACHE_INMUTABLE_NAME = 'inmutable-v1';
@@ -20,16 +18,18 @@ function cleanCache(cacheName, sizeItems){
 
 self.addEventListener("install",(event) =>{
     //crear caché y almacenar nuestro APPSHELL
+    console.log("SW INSTALADO");
     const promesaCache = caches.open(CACHE_STATIC_NAME)
     .then(cache =>{
         return cache.addAll([
             '/20213-PWA-U2-P2-JJBM',
             "index.html",
-            "images/noticia4.png",
+            "images/noticia1.png",
             "images/noticia2.png",
             "images/noticia3.png",
-            "images/noticia1.png",
-            "js/app.js"
+            "images/noticia4.png",
+            "js/app.js",
+            "css/page.css"
         ]);
     });
 
@@ -37,7 +37,7 @@ self.addEventListener("install",(event) =>{
         .then( cacheInmutable =>{
             return cacheInmutable.addAll([
                 "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css",
-                "css/page.css",
+               
 
             ]);
         });
